@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: itwasumingress
+  namespace: itwasum
+  labels:
+    name: itwasumingress
+  annotations:
+    nginx.ingress.kubernetes.io/client-max-body-size: 100m
+    nginx.ingress.kubernetes.io/client-body-buffer-size: 100m
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.ingress.kubernetes.io/proxy-buffer-size: 100m
+    nginx.ingress.kubernetes.io/enable-cors: "false"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For"
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: hadir.itwasum.tigapilarmandiri.dev
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: svc-itwasum
+            port:
+              number: 8080

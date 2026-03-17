@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itwasum
+  namespace: itwasum
+spec:
+  selector:
+    matchLabels:
+      app: itwasum
+  template:
+    metadata:
+      labels:
+        app: itwasum
+    spec:
+      imagePullSecrets:
+        - name: regsecret
+      containers:
+      - name: itwasum
+        image: registry.digitalocean.com/registry-tigapilar/presensi/itwasum:latest
+        # image: nginx
+        imagePullPolicy: Always
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "2"
+          requests:
+            memory: "256Mi"
+            cpu: "1"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: config
+            mountPath: /app/.env
+            subPath: .env
+            readOnly: true
+
+      volumes:
+        - name: config
+          configMap:
+            name: app-configmap
+            items:
+              - key: .env
+                path: .env
+---
