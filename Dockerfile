@@ -11,7 +11,7 @@ RUN apt update
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:ondrej/php
 RUN apt update
-RUN apt install -y curl  php8.4 php8.4-bz2 php8.4-cli php8.4-curl php8.4-fpm php8.4-gd php8.4-interbase php8.4-mbstring php8.4-mcrypt php8.4-mysql php8.4-opcache php8.4-pgsql php8.4-redis php8.4-xml php8.4-zip php8.4-fileinfo ca-certificates
+RUN apt install -y curl nginx php8.4 php8.4-bz2 php8.4-cli php8.4-curl php8.4-fpm php8.4-gd php8.4-interbase php8.4-mbstring php8.4-mcrypt php8.4-mysql php8.4-opcache php8.4-pgsql php8.4-redis php8.4-xml php8.4-zip php8.4-fileinfo ca-certificates
 COPY . /app
 
 
