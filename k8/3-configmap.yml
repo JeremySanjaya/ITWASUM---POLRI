@@ -23,7 +23,7 @@ data:
     DB_HOST=10.11.12.212
     DB_PORT=3306
     DB_DATABASE=itwasum
-    DB_USERNAME=rihlah
+    DB_USERNAME=itwasum
     DB_PASSWORD=password
 
     BROADCAST_DRIVER=log
