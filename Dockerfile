@@ -15,7 +15,7 @@ RUN apt install -y curl nginx php8.4 php8.4-bz2 php8.4-cli php8.4-curl php8.4-fp
 COPY . /app
 
 
-COPY --from=composer:2.2.21 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 #RUN composer global require kylekatarnls/update-helper
 
 
