@@ -7,7 +7,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [PresensiController::class, 'index'])->name('presensi.index');
 Route::post('/signature', [PresensiController::class, 'signature'])->name('presensi.signature');
 Route::post('/store', [PresensiController::class, 'store'])->name('presensi.store');
-Route::get('/success', [PresensiController::class, 'success'])->name('presensi.success');
+Route::get('/presensi/sukses', [PresensiController::class, 'success'])->name('presensi.success');
 
-//  ADMIN (LANGSUNG AKSES)
+// ADMIN
 Route::get('/dashboard_admin', [PresensiController::class, 'dashboard'])->name('admin.dashboard');
+Route::post('/admin/add-option', [PresensiController::class, 'addOption'])->name('admin.add-option');
+Route::delete('/admin/delete-option/{id}', [PresensiController::class, 'deleteOption']);
